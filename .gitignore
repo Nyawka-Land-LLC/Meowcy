@@ -1,0 +1,5 @@
+.gradle/
+.idea/
+local.properties
+**/build/
+third_party/hev-socks5-tunnel-android/

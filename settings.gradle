@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'Meowcy'
+include ':app'
+
+def hevDir = file('third_party/hev-socks5-tunnel-android/library')
+if (!hevDir.exists()) {
+    throw new GradleException('Missing HEV tunnel library. Run ./setup-hev.sh first.')
+}
+include ':hevlib'
+project(':hevlib').projectDir = hevDir
